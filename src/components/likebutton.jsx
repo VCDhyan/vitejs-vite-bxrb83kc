@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const LikeButton = () => {
-    const [likes, setLikes] = useState(0);
+  const [liked, setLiked] = useState(false);
 
-    const handleLike = () => {
-        setLikes(likes + 1);
-    };
-
-    return (
-        <button onClick={handleLike}>
-            Like {likes}
-        </button>
-    );
+  return (
+    <button
+      onClick={() => setLiked(!liked)}
+      className={`px-3 py-1 rounded-md font-semibold transition ${
+        liked ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"
+      }`}
+    >
+      {liked ? "Liked ❤️" : "Like"}
+    </button>
+  );
 };
 
 export default LikeButton;
